@@ -210,6 +210,7 @@ export default function PumpScene({
 
         if (showMaintenance) {
           p.push();
+          p.translate(0, -48 * s);
           p.stroke("#ff6b35");
           p.strokeWeight(2 * s);
           p.rect(-120 * s, -180 * s, 240 * s, 60 * s);
@@ -217,8 +218,8 @@ export default function PumpScene({
           p.noStroke();
           p.textAlign(p.CENTER, p.CENTER);
           p.textSize(14 * s);
-          p.text("MANTENIMIENTO", 0, -165 * s);
-          p.text("EN PROGRESO", 0, -145 * s);
+          p.text("MANTENIMIENTO", 0, -156 * s);
+          p.text("EN PROGRESO", 0, -140 * s);
           p.pop();
         }
 
