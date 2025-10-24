@@ -24,7 +24,11 @@ interface SensorChartsProps {
 }
 
 export default function SensorCharts({ data, currentFrame, onFrameClick }: SensorChartsProps) {
-  const chartRefs = [useRef<ChartJS>(null), useRef<ChartJS>(null), useRef<ChartJS>(null)]
+  const chartRefs = [
+    useRef<ChartJS<"line">>(null),
+    useRef<ChartJS<"line">>(null),
+    useRef<ChartJS<"line">>(null),
+  ]
 
   // Update vertical line position
   useEffect(() => {
