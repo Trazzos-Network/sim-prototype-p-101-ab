@@ -61,6 +61,9 @@ export default function PumpScene({
       p.draw = () => {
         p.background(bgColor);
 
+        // Draw subtle dotted grid pattern
+        drawGridPattern(p);
+
         const rotation = currentFrame * p.TWO_PI;
 
         // Calculate scale factor based on container dimensions
@@ -82,6 +85,23 @@ export default function PumpScene({
         const { width, height } = getContainerDimensions();
         p.resizeCanvas(width, height);
       };
+
+      function drawGridPattern(p: p5) {
+        // Draw a subtle dotted grid pattern
+        const gridSpacing = 24; // Space between dots
+        const dotSize = 1.5; // Size of each dot
+        const dotColor = p.color(255, 255, 255, 25); // Very subtle white with low opacity
+
+        p.noStroke();
+        p.fill(dotColor);
+
+        // Draw dots across the entire canvas
+        for (let x = 0; x < p.width; x += gridSpacing) {
+          for (let y = 0; y < p.height; y += gridSpacing) {
+            p.circle(x, y, dotSize);
+          }
+        }
+      }
 
       function drawSideView(p: p5, s: number, rot: number) {
         p.push();
